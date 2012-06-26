@@ -13,8 +13,7 @@ app.forms.PictureBase = app.views.Base.extend({
     
     var self = this;
     filepicker.getFile('image/*', {'modal' : true, 'services': ['My Computer', 'Images', 'Webcam']}, function(url, metadata) {
-      console.log(metadata  )
-      self.$("form input[name='photo[image_url]']").val(url)
+      self.$("form input[name='photo[image_url]']").val(url + '+' + metadata.filename)
       self.submitURL()
     })
   },
